@@ -56,7 +56,7 @@ const App: React.FC = () => {
   return (
     <Layout>
       {/* SECTION 1: HERO */}
-      <section id="hero" className="relative h-screen flex flex-col justify-center bg-charcoal overflow-hidden pt-20">
+      <section id="hero" className="relative h-screen flex flex-col justify-center bg-charcoal overflow-hidden pt20">
         <div className="absolute inset-0 z-0 bg-charcoal">
           {HERO_IMAGES.map((img, idx) => (
             <div key={idx} className={`absolute inset-0 transition-opacity duration-[2000ms] ${idx === activeMediaIndex ? 'opacity-100' : 'opacity-0'}`}>
