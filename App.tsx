@@ -1,4 +1,4 @@
-
+            
 import React, { useState, useEffect, useMemo } from 'react';
 import { Layout } from './components/Layout';
 import { EventModal } from './components/EventModal';
@@ -99,7 +99,7 @@ const App: React.FC = () => {
   return (
     <Layout>
       {/* SECTION 1: HERO GALLERY */}
-      <section id="hero" className="relative h-screen flex flex-col justify-center bg-charcoal overflow-hidden pt-32">
+      <section id="hero" className="relative h-screen flex flex-col justify-center bg-charcoal overflow-hidden pt-24">
         <div className="absolute inset-0 z-0 bg-charcoal">
           {HERO_IMAGES.map((img, idx) => (
             <div 
@@ -117,22 +117,22 @@ const App: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-charcoal/90 z-10" />
         </div>
 
-        <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center h-full pb-24">
-          <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000 mt-32">
+        <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center h-full">
+          <div className="max-w-4xl space-y-6 animate-in fade-in slide-in-from-left-8 duration-1000 mt-12">
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-[2px] bg-primary" />
                 <span className="text-[10px] md:text-xs font-sans font-bold uppercase tracking-[0.6em] text-primary">Est. 2023</span>
               </div>
               
-              <h1 className="font-sans font-black text-6xl md:text-8xl lg:text-9xl leading-[0.9] uppercase tracking-tighter text-white drop-shadow-2xl">
+              <h1 className="font-sans font-black text-6xl md:text-8xl lg:text-8xl leading-[0.9] uppercase tracking-tighter text-white drop-shadow-2xl">
                 Ignite your <span className="text-white">faith,</span> <br />
                 <span className="text-primary">Build bonds</span>
               </h1>
             </div>
             
             <div className="max-w-xl">
-              <h2 className="font-sans font-light text-white/95 text-xl md:text-2xl leading-relaxed border-l-4 border-primary pl-20 py-2 drop-shadow-md">
+              <h2 className="font-sans font-light text-white/95 text-xl md:text-2xl leading-relaxed border-l-4 border-primary pl-12 py-2 drop-shadow-md">
                 Your home for a faith in <br className="hidden md:block" /> Catholic community
               </h2>
             </div>
