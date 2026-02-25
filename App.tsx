@@ -117,7 +117,7 @@ const App: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-charcoal/90 z-10" />
         </div>
 
-        <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center h-full pb-40">
+        <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center h-full pb-20">
           <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
             <div className="space-y-4">
               <div className="flex items-center gap-4">
@@ -132,7 +132,7 @@ const App: React.FC = () => {
             </div>
             
             <div className="max-w-xl">
-              <h2 className="font-sans font-light text-white/95 text-xl md:text-2xl leading-relaxed border-l-4 border-primary pl-8 py-2 drop-shadow-md">
+              <h2 className="font-sans font-light text-white/95 text-xl md:text-2xl leading-relaxed border-l-4 border-primary pl-20 py-2 drop-shadow-md">
                 Your home for a faith in <br className="hidden md:block" /> Catholic community
               </h2>
             </div>
