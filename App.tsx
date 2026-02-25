@@ -98,8 +98,8 @@ const App: React.FC = () => {
 
   return (
     <Layout>
-      {/* SECTION 1: HERO GALLERY */}
-      <section id="hero" className="relative h-screen flex flex-col justify-center bg-charcoal overflow-hidden pt-32">
+  {/* SECTION 1: HERO GALLERY */}
+      <section id="hero" className="relative h-screen flex flex-col justify-center bg-charcoal overflow-hidden">
         <div className="absolute inset-0 z-0 bg-charcoal">
           {HERO_IMAGES.map((img, idx) => (
             <div 
@@ -117,9 +117,10 @@ const App: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-charcoal/90 z-10" />
         </div>
 
-        <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center h-full pb-48">
-  <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000 -mt-16">
-          <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
+        {/* Contenedor de texto: pb-64 para alejarlo mucho del banner naranja */}
+        <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center h-full pb-64">
+          {/* Bloque de contenido: -mt-32 para subirlo más hacia el centro superior */}
+          <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000 -mt-32">
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-[1px] bg-primary" />
