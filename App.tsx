@@ -117,8 +117,8 @@ const App: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-charcoal/90 z-10" />
         </div>
 
-        <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center h-full pb-20">
-          <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
+        <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center h-full pb-24">
+          <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000 mt-32">
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-[2px] bg-primary" />
