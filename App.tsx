@@ -5,7 +5,7 @@ import { EventModal } from './components/EventModal';
 import { Event, County, EventType } from './types';
 import { SEED_EVENTS, SHOP_ITEMS } from './constants';
 import { ArrowRight, Heart, Handshake, BookOpen, Play, Instagram, Mic2, ExternalLink, ShoppingCart, Sparkles, Star, Sun, Coins } from 'lucide-react';
-import { format, addDays, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, startOfWeek, endOfWeek } from 'date-fns';
+import { format, addMonths, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, startOfWeek, endOfWeek } from 'date-fns';
 import { Logo } from './components/Logo';
 import { GoogleGenAI } from "@google/genai";
 
@@ -57,7 +57,7 @@ const App: React.FC = () => {
         const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
         const response = await ai.models.generateContent({
           model: 'gemini-3-flash-preview',
-          contents: "Write a one-sentence, powerful spiritual intention for a Catholic Young Adult in Santa Barbara or Ventura County, California. Focus on community growth.",
+          contents: "Write a one-sentence, powerful spiritual intention for a Catholic Young Adult in Santa Barbara or Ventura County, California. Focus on coastal beauty or community growth.",
         });
         setAiReflection(response.text || "Grace is found in the simple moments of community.");
       } catch (err) {
@@ -98,8 +98,8 @@ const App: React.FC = () => {
 
   return (
     <Layout>
-  {/* SECTION 1: HERO GALLERY */}
-      <section id="hero" className="relative h-screen flex flex-col justify-center bg-charcoal overflow-hidden">
+      {/* SECTION 1: HERO GALLERY */}
+      <section id="hero" className="relative h-screen flex flex-col justify-center bg-charcoal overflow-hidden pt-32">
         <div className="absolute inset-0 z-0 bg-charcoal">
           {HERO_IMAGES.map((img, idx) => (
             <div 
@@ -117,38 +117,37 @@ const App: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-charcoal/90 z-10" />
         </div>
 
-        {/* Contenedor de texto: pb-50 para alejarlo mucho del banner naranja */}
-        <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center h-full pb-50">
-          {/* Bloque de contenido: -mt-20 para subirlo más hacia el centro superior */}
-          <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000 mt-20">
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-[1px] bg-primary" />
-                <span className="text-[10px] md:text-xs font-sans font-bold uppercase tracking-[0.5em] text-primary">Est. 2023</span>
+        <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center h-full pb-24">
+          <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-[2px] bg-primary" />
+                <span className="text-[10px] md:text-xs font-sans font-bold uppercase tracking-[0.6em] text-primary">Est. 2023</span>
               </div>
               
-              <h1 className="font-sans font-black text-5xl md:text-8xl leading-[1.1] uppercase tracking-tighter text-white drop-shadow-2xl">
-                Ignite your <br />
-                <span className="text-white">faith,</span> <br />
+              <h1 className="font-sans font-black text-6xl md:text-8xl lg:text-9xl leading-[0.9] uppercase tracking-tighter text-white drop-shadow-2xl">
+                Ignite your <span className="text-white">faith,</span> <br />
                 <span className="text-primary">Build bonds</span>
               </h1>
             </div>
             
-            <h2 className="font-sans font-light text-white/95 text-lg md:text-xl max-w-xl leading-relaxed border-l-4 border-primary pl-6 py-1 drop-shadow-md">
-              Your home for a faith in Catholic community
-            </h2>
+            <div className="max-w-xl">
+              <h2 className="font-sans font-light text-white/95 text-xl md:text-2xl leading-relaxed border-l-4 border-primary pl-8 py-2 drop-shadow-md">
+                Your home for a faith in <br className="hidden md:block" /> Catholic community
+              </h2>
+            </div>
 
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-6 pt-6">
               <button 
                 onClick={() => scrollToSection('events')}
-                className="group relative px-10 py-5 bg-white text-charcoal rounded-full font-sans font-bold text-xs uppercase tracking-[0.2em] flex items-center gap-3 hover:bg-primary hover:text-white transition-all hover:scale-105 active:scale-95 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+                className="group relative px-12 py-6 bg-white text-charcoal rounded-full font-sans font-bold text-xs uppercase tracking-[0.25em] flex items-center gap-4 hover:bg-primary hover:text-white transition-all hover:scale-105 active:scale-95 shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
               >
                 Join the Mission 
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
               </button>
               <button 
                 onClick={() => scrollToSection('events')}
-                className="px-10 py-5 bg-white/5 backdrop-blur-xl border border-white/10 text-white rounded-full font-sans font-bold text-xs uppercase tracking-[0.2em] flex items-center gap-3 hover:bg-white/20 transition-all hover:scale-105 active:scale-95"
+                className="px-12 py-6 bg-white/5 backdrop-blur-2xl border border-white/20 text-white rounded-full font-sans font-bold text-xs uppercase tracking-[0.25em] flex items-center gap-4 hover:bg-white/20 transition-all hover:scale-105 active:scale-95"
               >
                 Explore Events
               </button>
@@ -178,52 +177,136 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 2: EVENTS (RESTORED TO CARDS) */}
-      <section id="events" className="py-32 px-6 md:px-12 max-w-[1400px] mx-auto">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-20">
+      {/* SECTION 2: CALENDAR */}
+      <section id="events" className="pt-12 pb-4 md:pt-16 md:pb-6 px-6 md:px-12 max-w-[1400px] mx-auto space-y-6 md:space-y-10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
           <div className="space-y-4">
-            <span className="text-gold font-bold uppercase tracking-[0.6em] text-[11px]">Local Pulse</span>
-            <h2 className="text-6xl md:text-8xl font-black text-charcoal tracking-tighter uppercase leading-none mt-4">Calendar</h2>
+            <span className="text-[11px] font-sans font-bold uppercase tracking-[0.6em] text-gold">Local Pulse</span>
+            <h2 className="font-sans text-5xl md:text-7xl font-black text-charcoal tracking-tighter leading-[0.8] uppercase">CALENDAR</h2>
           </div>
-          <div className="flex flex-wrap gap-2 bg-charcoal/5 p-2 rounded-[2rem]">
-            {eventTypes.map(t => (
-              <button 
-                key={t} 
-                onClick={() => setActiveType(t)} 
-                className={`px-8 py-3 rounded-2xl text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  activeType === t ? 'bg-primary text-white shadow-xl' : 'text-charcoal/40 hover:text-charcoal'
-                }`}
-              >
-                {t}
-              </button>
-            ))}
+          
+          <div className="flex flex-col gap-4">
+            {/* Pillar Filter */}
+            <div className="space-y-1">
+              <p className="text-[10px] font-sans font-bold text-charcoal/30 uppercase tracking-widest pl-2">Filter by Pillar</p>
+              <div className="flex flex-wrap gap-2 p-1.5 bg-charcoal/5 rounded-[2.5rem] shadow-inner">
+                {eventTypes.map((t) => (
+                  <button
+                    key={t}
+                    onClick={() => setActiveType(t)}
+                    className={`px-6 md:px-8 py-2.5 rounded-2xl text-[10px] font-sans font-bold uppercase tracking-widest transition-all ${
+                      activeType === t ? 'bg-gold text-white shadow-xl scale-105' : 'text-charcoal/40 hover:text-charcoal hover:bg-white/50'
+                    }`}
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* County Filter */}
+            <div className="space-y-1">
+              <p className="text-[10px] font-sans font-bold text-charcoal/30 uppercase tracking-widest pl-2">Filter by Location</p>
+              <div className="flex flex-wrap gap-2 p-1.5 bg-charcoal/5 rounded-[2.5rem] shadow-inner">
+                {counties.map((c) => (
+                  <button
+                    key={c}
+                    onClick={() => setActiveCounty(c)}
+                    className={`px-6 md:px-8 py-2.5 rounded-2xl text-[10px] font-sans font-bold uppercase tracking-widest transition-all ${
+                      activeCounty === c ? 'bg-primary text-white shadow-xl scale-105' : 'text-charcoal/40 hover:text-charcoal hover:bg-white/50'
+                    }`}
+                  >
+                    {c}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredEvents.map(event => (
-            <div 
-              key={event.id} 
-              onClick={() => openEvent(event)} 
-              className="group bg-white p-10 rounded-[3rem] shadow-xl border border-charcoal/5 hover:-translate-y-2 transition-all cursor-pointer"
-            >
-              <div className="flex justify-between items-start mb-8">
-                <div className="bg-primary/10 text-primary px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
-                  {event.type}
-                </div>
-                <span className="text-charcoal/20 font-black text-xl">0{event.id}</span>
+        <div className="max-w-5xl mx-auto">
+          <div className="glass rounded-[3rem] md:rounded-[4.5rem] p-8 md:p-14 shadow-2xl border border-charcoal/5 relative group overflow-hidden">
+            <div className="flex justify-between items-center mb-16 relative z-10">
+              <div className="space-y-1">
+                <h3 className="font-sans text-4xl md:text-5xl font-black text-charcoal tracking-tighter uppercase leading-none">{format(currentDate, 'MMMM')}</h3>
+                <p className="text-[10px] font-sans font-bold text-charcoal/30 tracking-[0.4em] uppercase text-center md:text-left">Local Community Updates</p>
               </div>
-              <h3 className="text-3xl font-black uppercase tracking-tighter mb-4 group-hover:text-primary transition-colors">
-                {event.title}
-              </h3>
-              <p className="text-charcoal/40 text-sm font-bold uppercase tracking-widest mb-8">
-                {format(event.start, 'EEEE, MMM do')}
-              </p>
-              <button className="w-full py-4 bg-charcoal text-white rounded-2xl font-bold text-xs uppercase tracking-widest group-hover:bg-primary transition-colors">
-                View Details
-              </button>
+              <div className="flex gap-4">
+                <button onClick={() => setCurrentDate(addMonths(currentDate, -1))} className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center border-2 border-charcoal/5 rounded-full hover:bg-primary hover:text-white transition-all shadow-sm">&larr;</button>
+                <button onClick={() => setCurrentDate(addMonths(currentDate, 1))} className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center border-2 border-charcoal/5 rounded-full hover:bg-primary hover:text-white transition-all shadow-sm">&rarr;</button>
+              </div>
             </div>
-          ))}
+
+            <div className="grid grid-cols-7 gap-2 md:gap-6 text-center mb-10">
+              {['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'].map(d => (
+                <span key={d} className="text-[9px] md:text-[10px] font-sans font-bold text-charcoal/20 uppercase tracking-[0.2em] md:tracking-[0.3em]">{d}</span>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-7 gap-2 md:gap-5">
+              {calendarDays.map((day, idx) => {
+                const dayEvents = filteredEvents.filter(e => isSameDay(e.start, day));
+                const isCurrentMonth = day.getMonth() === currentDate.getMonth();
+                
+                return (
+                  <div 
+                    key={idx}
+                    onClick={() => dayEvents.length > 0 && openEvent(dayEvents[0])}
+                    className={`relative aspect-square flex items-center justify-center rounded-xl md:rounded-[1.8rem] text-sm font-sans font-bold transition-all cursor-pointer group ${
+                      !isCurrentMonth ? 'text-charcoal/10' : 'text-charcoal/80'
+                    } ${
+                      dayEvents.length > 0 ? 'bg-gold text-white shadow-xl scale-105 md:scale-110 hover:rotate-3 hover:scale-115' : 'hover:bg-accent/40'
+                    }`}
+                  >
+                    {format(day, 'd')}
+                    {dayEvents.length > 0 && (
+                      <span className="absolute -top-1 -right-1 w-5 h-5 md:w-6 md:h-6 bg-primary text-white text-[9px] md:text-[10px] rounded-full flex items-center justify-center border-2 md:border-4 border-white font-sans font-bold">
+                        {dayEvents.length}
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* List View for Quick Access */}
+          <div className="mt-12 space-y-6">
+            <div className="flex items-center justify-between">
+              <h4 className="font-sans text-xl font-bold text-charcoal uppercase tracking-widest">Upcoming in {format(currentDate, 'MMMM')}</h4>
+              <span className="text-[10px] font-sans font-bold text-charcoal/40 uppercase tracking-widest">
+                {filteredEvents.filter(e => e.start.getMonth() === currentDate.getMonth()).length} Events Found
+              </span>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {filteredEvents
+                .filter(e => e.start.getMonth() === currentDate.getMonth())
+                .sort((a, b) => a.start.getTime() - b.start.getTime())
+                .map(event => (
+                  <div 
+                    key={event.id}
+                    onClick={() => openEvent(event)}
+                    className="group bg-white p-6 rounded-3xl border border-charcoal/5 shadow-sm hover:shadow-xl hover:border-primary/20 transition-all cursor-pointer flex items-center gap-6"
+                  >
+                    <div className="flex flex-col items-center justify-center w-16 h-16 bg-charcoal/5 rounded-2xl group-hover:bg-primary group-hover:text-white transition-colors">
+                      <span className="text-[10px] font-sans font-bold uppercase tracking-tighter">{format(event.start, 'MMM')}</span>
+                      <span className="text-2xl font-sans font-black leading-none">{format(event.start, 'd')}</span>
+                    </div>
+                    <div className="flex-grow">
+                      <h5 className="font-sans font-bold text-charcoal group-hover:text-primary transition-colors">{event.title}</h5>
+                      <p className="text-xs text-charcoal/50 font-sans">{event.parishName} • {event.city}</p>
+                    </div>
+                    <ArrowRight size={20} className="text-charcoal/20 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  </div>
+                ))}
+              {filteredEvents.filter(e => e.start.getMonth() === currentDate.getMonth()).length === 0 && (
+                <div className="col-span-full py-12 text-center bg-charcoal/5 rounded-[3rem] border-2 border-dashed border-charcoal/10">
+                  <p className="text-charcoal/40 font-sans font-bold uppercase tracking-widest">No events found for this month</p>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </section>
 
