@@ -56,7 +56,7 @@ const App: React.FC = () => {
   return (
     <Layout>
       {/* SECTION 1: HERO */}
-      <section id="hero" className="relative h-screen flex flex-col justify-center bg-charcoal overflow-hidden pt-40">
+      <section id="hero" className="relative h-screen flex flex-col justify-center bg-charcoal overflow-hidden">
         <div className="absolute inset-0 z-0 bg-charcoal">
           {HERO_IMAGES.map((img, idx) => (
             <div key={idx} className={`absolute inset-0 transition-opacity duration-[2000ms] ${idx === activeMediaIndex ? 'opacity-100' : 'opacity-0'}`}>
@@ -66,8 +66,8 @@ const App: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/30 to-transparent z-10" />
         </div>
 
-        <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center min-h-[85vh]">
-          <div className="max-w-4xl space-y-8">
+        <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center h-full pb-32">
+          <div className="max-w-4xl space-y-8 -mt-20">
             <div className="flex items-center gap-3">
               <div className="w-10 h-[1px] bg-primary" />
               <span className="text-xs font-bold uppercase tracking-[0.5em] text-primary">Est. 2023</span>
