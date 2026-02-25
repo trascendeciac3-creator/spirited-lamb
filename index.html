@@ -1,11 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spirited Lamb</title>
-<link rel="icon" type="image/png" href="https://mlptyjrdcsxoojvszlbn.supabase.co/storage/v1/object/public/SLWeb/logo%20black.png" />
+    <link rel="icon" type="image/png" href="https://mlptyjrdcsxoojvszlbn.supabase.co/storage/v1/object/public/SLWeb/logo%20black.png" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
@@ -16,14 +19,22 @@
               gold: '#D4AF37',    // Gold
               background: '#FAF9F6', // Off-white
               charcoal: '#2D2D2D',  // Charcoal
+              accent: '#F3E5AB',   // Light gold/Cream
             },
             fontFamily: {
               sans: ['Montserrat', 'sans-serif'],
+              heading: ['Montserrat', 'sans-serif'], // Reverted to Montserrat as "the one set before"
             },
             animation: {
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
               'scroll': 'scroll 120s linear infinite',
             },
             keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
               scroll: {
                 '0%': { transform: 'translateX(0)' },
                 '100%': { transform: 'translateX(-50%)' },
@@ -34,12 +45,50 @@
       }
     </script>
     <style>
-      body { background-color: #FAF9F6; color: #2D2D2D; overflow-x: hidden; font-family: 'Montserrat', sans-serif; }
-      .glass { background: rgba(250, 249, 246, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); }
+      body {
+        background-color: #FAF9F6;
+        color: #2D2D2D;
+        overflow-x: hidden;
+      }
+      .minimalist-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .minimalist-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .minimalist-scrollbar::-webkit-scrollbar-thumb {
+        background: #D4AF37;
+        border-radius: 10px;
+      }
+      .glass {
+        background: rgba(250, 249, 246, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .nano-banana-img {
+        filter: sepia(0.1) contrast(1.05) brightness(0.95);
+      }
+      .media-track:hover {
+        animation-play-state: paused;
+      }
     </style>
-  </head>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "date-fns": "https://esm.sh/date-fns@^4.1.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+  <script type="module" src="/index.tsx"></script>
+</body>
 </html>
