@@ -57,7 +57,7 @@ const App: React.FC = () => {
         const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
         const response = await ai.models.generateContent({
           model: 'gemini-3-flash-preview',
-          contents: "Write a one-sentence, powerful spiritual intention for a Catholic Young Adult in Santa Barbara or Ventura County, California. Focus on coastal beauty or community growth.",
+          contents: "Write a one-sentence, powerful spiritual intention for a Catholic Young Adult in Santa Barbara or Ventura County, California. Focus on community growth.",
         });
         setAiReflection(response.text || "Grace is found in the simple moments of community.");
       } catch (err) {
@@ -117,10 +117,10 @@ const App: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-charcoal/90 z-10" />
         </div>
 
-        {/* Contenedor de texto: pb-64 para alejarlo mucho del banner naranja */}
+        {/* Contenedor de texto: pb-50 para alejarlo mucho del banner naranja */}
         <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center h-full pb-50">
-          {/* Bloque de contenido: -mt-32 para subirlo más hacia el centro superior */}
-          <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000 mt-32">
+          {/* Bloque de contenido: -mt-20 para subirlo más hacia el centro superior */}
+          <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000 mt-20">
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-[1px] bg-primary" />
