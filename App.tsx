@@ -67,8 +67,8 @@ const App: React.FC = () => {
         </div>
 
         <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center h-full pb-32">
-          <div className="max-w-4xl space-y-8 -mt-20">
-            <div className="flex items-center gap-3">
+          <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center h-full pb-20">
+            <div className="max-w-4xl space-y-8">
               <div className="w-10 h-[1px] bg-primary" />
               <span className="text-xs font-bold uppercase tracking-[0.5em] text-primary">Est. 2023</span>
             </div>
