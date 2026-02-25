@@ -118,7 +118,7 @@ const App: React.FC = () => {
         </div>
 
         <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center h-full">
-          <div className="max-w-4xl space-y-6 animate-in fade-in slide-in-from-left-8 duration-1000 mt-12">
+          <div className="max-w-4xl space-y-6 animate-in fade-in slide-in-from-left-8 duration-1000 -mt-24">
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-[2px] bg-primary" />
@@ -137,7 +137,7 @@ const App: React.FC = () => {
               </h2>
             </div>
 
-            <div className="flex flex-wrap gap-6 pt-6">
+            <div className="flex flex-wrap gap-6 pt-2">
               <button 
                 onClick={() => scrollToSection('events')}
                 className="group relative px-12 py-6 bg-white text-charcoal rounded-full font-sans font-bold text-xs uppercase tracking-[0.25em] flex items-center gap-4 hover:bg-primary hover:text-white transition-all hover:scale-105 active:scale-95 shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
