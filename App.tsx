@@ -1,4 +1,4 @@
-            
+   
 import React, { useState, useEffect, useMemo } from 'react';
 import { Layout } from './components/Layout';
 import { EventModal } from './components/EventModal';
@@ -117,37 +117,39 @@ const App: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-charcoal/90 z-10" />
         </div>
 
-        <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col justify-center h-full">
-          <div className="max-w-4xl space-y-6 animate-in fade-in slide-in-from-left-8 duration-1000 mt-12">
-            <div className="space-y-4">
+        <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-col h-full pt-48 pb-32">
+          <div className="flex-grow flex flex-col justify-center">
+            <div className="max-w-4xl space-y-4 animate-in fade-in slide-in-from-left-8 duration-1000">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-[2px] bg-primary" />
                 <span className="text-[10px] md:text-xs font-sans font-bold uppercase tracking-[0.6em] text-primary">Est. 2023</span>
               </div>
               
-              <h1 className="font-sans font-black text-6xl md:text-8xl lg:text-8xl leading-[0.9] uppercase tracking-tighter text-white drop-shadow-2xl">
+              <h1 className="font-sans font-black text-6xl md:text-8xl lg:text-9xl leading-[0.9] uppercase tracking-tighter text-white drop-shadow-2xl">
                 Ignite your <span className="text-white">faith,</span> <br />
                 <span className="text-primary">Build bonds</span>
               </h1>
             </div>
-            
+          </div>
+
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
             <div className="max-w-xl">
-              <h2 className="font-sans font-light text-white/95 text-xl md:text-2xl leading-relaxed border-l-4 border-primary pl-12 py-2 drop-shadow-md">
+              <h2 className="font-sans font-light text-white/95 text-xl md:text-2xl leading-relaxed border-l-4 border-primary pl-8 py-2 drop-shadow-md">
                 Your home for a faith in <br className="hidden md:block" /> Catholic community
               </h2>
             </div>
 
-            <div className="flex flex-wrap gap-6 pt-6">
+            <div className="flex flex-wrap gap-4 md:gap-6">
               <button 
                 onClick={() => scrollToSection('events')}
-                className="group relative px-12 py-6 bg-white text-charcoal rounded-full font-sans font-bold text-xs uppercase tracking-[0.25em] flex items-center gap-4 hover:bg-primary hover:text-white transition-all hover:scale-105 active:scale-95 shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+                className="group relative px-10 py-5 md:px-12 md:py-6 bg-white text-charcoal rounded-full font-sans font-bold text-xs uppercase tracking-[0.25em] flex items-center gap-4 hover:bg-primary hover:text-white transition-all hover:scale-105 active:scale-95 shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
               >
                 Join the Mission 
                 <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
               </button>
               <button 
                 onClick={() => scrollToSection('events')}
-                className="px-12 py-6 bg-white/5 backdrop-blur-2xl border border-white/20 text-white rounded-full font-sans font-bold text-xs uppercase tracking-[0.25em] flex items-center gap-4 hover:bg-white/20 transition-all hover:scale-105 active:scale-95"
+                className="px-10 py-5 md:px-12 md:py-6 bg-white/5 backdrop-blur-2xl border border-white/20 text-white rounded-full font-sans font-bold text-xs uppercase tracking-[0.25em] flex items-center gap-4 hover:bg-white/20 transition-all hover:scale-105 active:scale-95"
               >
                 Explore Events
               </button>
